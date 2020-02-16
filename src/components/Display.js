@@ -24,10 +24,18 @@ const styles = StyleSheet.create({
     }
 })
 
-export default props => 
+export default  props => { 
+    const value = Number(props.value)
+    console.log(value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }))
+    
+    const valueForm = value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+    
+    return (
     <View style={styles.display}>
         <Text style={styles.displayValue}
-            numberOfLines={1}>{props.value}</Text>
+            numberOfLines={1}>{valueForm}</Text>
         <Text style={styles.displayValuePagar}
             numberOfLines={1}>TOTAL A PAGAR</Text>
     </View>
+    )
+}
